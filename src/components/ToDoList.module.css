@@ -60,9 +60,10 @@
     }
 
     ul {
-        margin-top: 20px;
+        margin: 20px 0;
         padding-top: 20px;
         border-top: 2px solid #f0eff4;
+        
     }
 
     p {

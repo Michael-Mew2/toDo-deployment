@@ -64,7 +64,7 @@ export default function ToDoList() {
         />
         <button>Hinzufügen</button>
       </form>
-      <ul>
+      {toDos.length > 0 && <ul>
         {toDos.map((todo) => (
           <ToDoItem
             key={todo.id}
@@ -73,7 +73,7 @@ export default function ToDoList() {
             handleDelete={handleDelete}
           />
         ))}
-      </ul>
+      </ul>}
       <p>
         Erledigte To-Dos:{" "}
         <span
