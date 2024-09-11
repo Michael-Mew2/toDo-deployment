@@ -1,0 +1,49 @@
+.toDoItem {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    gap: 5px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    background: rgba(255, 255, 255, 0.322);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.425);
+    border-radius: 10px;
+
+    div {
+        padding: 5px;
+        border-radius: 4px;
+        /* border: 2px solid green; */
+        background-color: #ffffff;
+        width: 90%;
+        display: flex;
+
+        input {
+            cursor: pointer;
+            accent-color: #627c85;
+        }
+
+        label {
+            margin-left: 5px; 
+            font-size: 14px;
+
+        }
+    }
+    
+    button {
+        /* margin-left: 2%; */
+        /* width: 13%; */
+        padding: 5px 7px;
+        border-radius: 4px;
+        border: none;
+        background-color: #da4167;
+        color: #f0eff4;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #a82b4b;
+        }
+    }
+}

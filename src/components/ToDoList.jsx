@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from "react";
 import ToDoItem from "./ToDoItem";
+import styles from "./ToDoList.module.css";
 
 const initialState = [];
 
@@ -22,6 +23,9 @@ function reducer(state, action) {
           : toDo
       );
 
+    case "REMOVE_TODO":
+      return state.filter((toDo) => toDo.id !== action.payload);
+
     default:
       return state;
   }
@@ -43,8 +47,13 @@ export default function ToDoList() {
   function handleToggle(id) {
     dispatch({ type: "TOGGLE_CHECK", payload: id });
   }
+
+  function handleDelete(id) {
+    dispatch({ type: "REMOVE_TODO", payload: id });
+  }
+
   return (
-    <div>
+    <div className={styles.toDoList}>
       <h1>To-do Liste</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -57,10 +66,33 @@ export default function ToDoList() {
       </form>
       <ul>
         {toDos.map((todo) => (
-          <ToDoItem key={todo.id} toDo={todo} handleToggle={handleToggle} />
+          <ToDoItem
+            key={todo.id}
+            toDo={todo}
+            handleToggle={handleToggle}
+            handleDelete={handleDelete}
+          />
         ))}
       </ul>
-      <p>Erledigte To-Dos:</p>
+      <p>
+        Erledigte To-Dos:{" "}
+        <span
+          style={{
+            backgroundColor:
+              toDos.length >
+              toDos.filter((todo) => todo.completed === true).length
+                ? "#da4167"
+                : "#32de8a",
+              color:
+              toDos.length >
+              toDos.filter((todo) => todo.completed === true).length
+                ? "#f0eff4"
+                : "#627c85",
+          }}
+        >
+          {toDos.filter((todo) => todo.completed === true).length}
+        </span>
+      </p>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 {
-  "homepage": "http://Michael-Mew2.github.io/toDo-deployment",
   "name": "my-react-app",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
